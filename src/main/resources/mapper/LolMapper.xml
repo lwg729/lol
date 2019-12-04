@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.LolDao">
+    <resultMap type="Lol" id="lolResultMap" >
+        <id property="hid" column="hid"/>
+        <result property="hero" column="hero"/>
+        <result property="hspeed" column="hspeed"/>
+        <result property="hpower" column="hpower"/>
+        <result property="hblood" column="hblood"/>
+    </resultMap>
+    <insert id="addHero" parameterType="Lol">
+        INSERT INTO lol(hid,hero,hspeed,hpower,hblood) VALUE (#{hid},#{hero}, #{hspeed}, #{hpower},#{hblood})
+    </insert>
+
+    <delete id="deleteHeroById" parameterType="Long">
+        DELETE FROM lol WHERE hid=#{hid}
+    </delete>
+
+    <update id="updateHero" parameterType="Lol">
+        UPDATE lol
+        SET hero = #{hero},hspeed = #{hspeed},hpower = #{hpower},hblood = #{hblood}
+        WHERE  hid = #{hid}
+    </update>
+
+
+    <select id="queryById" resultType="Lol" parameterType="long">
+        SELECT hid,hero,hspeed,hpower,hblood
+        FROM lol
+        WHERE hid=#{hid}
+    </select>
+
+    <select id="queryAllHero" resultMap="lolResultMap">
+        SELECT hid,hero,hspeed,hpower,hblood
+        FROM lol
+    </select>
+
+</mapper>
