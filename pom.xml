@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ssm.lol</groupId>
@@ -21,91 +21,76 @@
   </properties>
 
   <dependencies>
+        <!--Swagger2-->
+      <dependency>
+          <groupId>io.springfox</groupId>
+          <artifactId>springfox-swagger2</artifactId>
+          <version>2.9.2</version>
+      </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>2.9.2</version>
     </dependency>
 
-    <!-- 单元测试所需jar包 -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
 
-    <!-- 日志jar包 -->
+
+      <!-- 日志jar包 -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.2.3</version>
     </dependency>
-    <!-- 4.Spring -->
-    <!-- 1)Spring核心 -->
-    <!-- 1)包含spring框架的核心工具类，spring其他组件都要使用到这个包里的类，是其他组件的基本核心 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version>
+      <version>5.2.0.RELEASE</version>
     </dependency>
-    <!-- 2)这个jar包是所有文件都要用到的，它包含访问配置文件、创建和管理bean以及进行（ioc/Di）
-    操作相关的所有类，如果应用只需要基本的（ioc/Di）操作，引入core与bean的jar包就足够了 -->
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>${spring.version}</version>
+      <version>5.2.0.RELEASE</version>
     </dependency>
-    <!-- 3)这个jae包为spring核心提供了大量的扩展，可以找到使用spring ApplicationContext特性时所需的全部标签及所需要
-    的全部的类，instrumentation组件及校验Validation方面的相关类。 -->
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>${spring.version}</version>
+      <version>5.2.0.RELEASE</version>
     </dependency>
-    <!-- 二)Spring DAO层 -->
-    <!-- 4)这个jar文件包含 Spring 对JDBC 数据访问进行封装的所有类 -->
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>${spring.version}</version>
+      <version>5.2.0.RELEASE</version>
     </dependency>
-    <!-- 5)为JDBC、Hibernat、JDO、JPA 等提供的一致的声明式和编程式 事务管理-->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-tx</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <!-- 三)Spring web -->
-    <!-- 6)Spring web包含web应用开发时，用到spring框架时所需的核心类，包括自动载入WebApplicationContext -->
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>${spring.version}</version>
+      <version>5.2.0.RELEASE</version>
     </dependency>
-    <!-- 7)包含SpringMVC框架相关的所有类。 -->
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <!-- 四)Spring test -->
-    <!-- 8)Spring test 对JUNIT等测试框架的简单封装 -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>${spring.version}</version>
-      <scope>test</scope>
+      <version>5.2.0.RELEASE</version>
     </dependency>
 
-    <!-- Servlet web -->
-    <!-- servlet-api主要用来提供servlet服务的 -->
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
+      <version>4.0.1</version>
+      <scope>provided</scope>
     </dependency>
+
 
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -122,8 +107,9 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.8.7</version>
+      <version>2.10.0</version>
     </dependency>
+
     <!-- Map工具类 对标准java Collection的扩展spring-core.jar需commons-collections.jar -->
     <dependency>
       <groupId>commons-collections</groupId>
@@ -149,7 +135,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.37</version>
+      <version>8.0.11</version>
       <scope>runtime</scope>
     </dependency>
     <!-- 连接池所需jar包 -->
@@ -165,6 +151,19 @@
       <artifactId>logback-classic</artifactId>
       <version>1.1.1</version>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>5.2.2.RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+
 
   </dependencies>
 
